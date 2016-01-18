@@ -1,0 +1,22 @@
+@mixin triangle($dir, $width, $height, $color){
+  width: 0;
+  height: 0;
+  display: block;
+  border-style: solid;
+  @if $dir == up{
+  border-color: transparent transparent $color transparent;
+  border-width: 0 $width/2 $height $width/2;
+  }
+  @if $dir == right{
+    border-color: transparent transparent transparent $color;
+    border-width: $height/2 0 $height/2 $width;
+  }
+  @if $dir == down{
+    border-color: $color transparent transparent transparent;
+    border-width: $height $width/2 0 $width/2;
+  }
+  @if $dir == left{
+    border-color: transparent $color transparent transparent;
+    border-width: $height/2 $width $height/2 0;
+  }
+}

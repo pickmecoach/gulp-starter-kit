@@ -1,0 +1,37 @@
+// Creates a "Burger" nav element
+
+@mixin burger($width, $heigth, $bar-heigth, $color, $parent, $border-radius: null) {
+  @at-root #{$parent}{
+    display: block;
+    position: absolute;
+    width: $width;
+    height: $heigth; 
+    cursor: pointer;   
+  }
+  &, &:before, &:after{
+    position: relative;
+    width: $width;
+    height: $bar-heigth;
+    background: $color;
+    @if $border-radius {
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    -ms-border-radius: $border-radius;
+    border-radius: $border-radius;
+    }
+  }
+  &{
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  &:before{
+    content: "";
+    top: -($heigth - $bar-heigth*3) / 2 - $bar-heigth;
+    }
+  &:after{
+    content: "";
+    top: ($heigth - $bar-heigth*3) / 2 + $bar-heigth;
+  }    
+};

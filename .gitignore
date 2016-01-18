@@ -1,0 +1,16 @@
+# all files in build folder
+build/**/*.*
+
+#	all files in node-modules folder
+work/node-modules/
+
+#	all files in bower_components folder
+work/bower_components/
+
+**/Desktop.ini
+
+**/.sass-cache
+
+.DC_Store
+
+work/npm-dbug.log

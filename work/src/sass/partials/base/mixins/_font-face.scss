@@ -1,0 +1,37 @@
+//adding web-fonts to the page
+// 
+// $name - font name(register sens.)
+// 
+// $weight - font-weight (default - "normal")
+// 
+// $style - style-type (default - "normal")
+// 
+// $adding-name - if it needs to add different style of existing font, like you have 
+//                Arial font-weight: normal, and you want to add Arial font-weight: bold
+//                just set $adding-name to name of adding style of existing font.
+//  
+@mixin fontface($name, $weight:normal, $style:normal,$adding-name:0){
+  @if($adding-name) == 0 {
+    @font-face {
+      font-family: #{$name};
+      src: url('../fonts/#{$name}.eot');
+      src: url('../fonts/#{$name}.eot?#iefix') format('embedded-opentype'),
+           url('../fonts/#{$name}.woff'),
+           url('../fonts/#{$name}.ttf'),
+           url('../fonts/#{$name}.svg');
+      font-weight: #{$weight};
+      font-style: #{$style};
+    }
+  }@else {
+    @font-face {
+      font-family: #{$name};
+      src: url('fonts/#{$adding-name}.eot');
+      src: url('fonts/#{$adding-name}.eot?#iefix') format('embedded-opentype'),
+           url('fonts/#{$adding-name}.woff'),
+           url('fonts/#{$adding-name}.ttf'),
+           url('fonts/#{$adding-name}.svg');
+      font-weight: #{$weight};
+      font-style: #{$style};
+    }
+  }
+};

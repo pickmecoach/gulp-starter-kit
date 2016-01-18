@@ -1,0 +1,80 @@
+{
+	"path": {
+		"html": {
+			"build": "../build",
+			"src": "src/html/*.html",
+			"watch": "src/html/**/*.html"
+		},
+		"css": {
+			"build": "../build/css",
+			"src": "src/sass/main.scss",
+			"watch": "src/sass/**/*.scss"
+		},
+		"js": {
+			"build": "../build/js",
+			"src": "src/js/main.js",
+			"watch": "src/js/**/*.js"
+		},
+		"img": {
+			"build": "../build/img",
+			"src": "src/img/**/*.*"
+		},
+		"fonts": {
+			"build": "../build/fonts",
+			"src": "src/fonts/**/*.*"
+		},
+		"critical": {
+			"build": "src/sass/critical",
+			"general": {
+				"raw": "src/sass/critical/general/critical.scss",
+				"build": "src/sass/critical/general",
+				"src": "src/sass/critical/general/critical.css"
+			},
+			"index": {
+				"raw": "src/sass/critical/pages/index/index_critical.scss",
+				"build": "src/sass/critical/pages/index",
+				"src": "src/sass/critical/pages/index/index_critical.css"
+			}
+		}
+	},
+	"server": {
+		"server": {
+			"baseDir": "../build"
+		},
+		"online": false,
+		"notify": false
+	},
+	"tunnel": {
+		"server": {
+			"baseDir": "../build",
+			"index": "index.html"
+		},
+		"online": true,
+		"tunnel": "true",
+		"port": 8080,
+		"notify": false,
+		"open": "tunnel"
+	},
+	"prefixer": {
+		"browsers": [
+			"> 1%",
+			"last 20 versions"
+		],
+		"cascade": false
+	},
+	"sass": {
+		"outputStyle": "expanded"
+	},
+	"uncss": {
+		"html": [
+			"../build/*.html"
+		]
+	},
+	"fileInclude": {
+		"prefix": "@@",
+		"basepath": "@file"
+	},
+	"page_names": [
+		"index"
+	]
+}

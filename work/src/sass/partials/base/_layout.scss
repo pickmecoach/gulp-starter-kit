@@ -1,0 +1,11 @@
+// Глобальные настройки сетки Susy
+// Подробнее:
+// http://susydocs.oddbird.net/en/latest/settings/
+$susy: (
+  math: fluid,
+  output: float,
+  container: auto,
+  container-position: center,
+  columns: 12,
+  global-box-sizing: border-box,
+);

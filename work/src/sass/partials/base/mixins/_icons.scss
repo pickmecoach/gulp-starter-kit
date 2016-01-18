@@ -1,0 +1,12 @@
+@mixin flat-icon(){
+  $icon-map: (
+    1: '\e000',
+    2: '\e002',
+    3: '\e003',
+    4: '\e001'
+    );
+  @each $icon, $content in $icon-map{
+    .icon-#{$icon}:before{
+      content: '\e#{$content}';}
+  }
+};

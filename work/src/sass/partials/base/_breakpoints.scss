@@ -1,0 +1,27 @@
+// Предустановки для медиазапросов
+
+$micro: 'only screen' 20em 30em; //between 320px and 480px
+
+$microUp: 'only screen' 20em; //320px and more
+
+$small: 'only screen' 30em 40em; //between 480px and 640px
+
+$smallUp: 'only screen' 30em; //480px and more
+
+$medium: 'only screen' 40em 60em; //640 -> 960
+
+$mediumUp: 'only screen' 40em; //640++
+
+$large: 'only screen' 60em 80em; //960 -> 1280
+
+$largeUp: 'only screen' 60em; //960++
+
+$xl: 'only screen' 80em 100em; // 1280 -> 1600
+
+$xlUp: 'only screen' 80em; // 1280++
+
+$xxl: 'only screen' 100em 120em; // 1600 -> 1920
+
+$xxlUp: 'only screen' 100em; // 1600++
+
+$tv: 'only screen' 120em; //1920++

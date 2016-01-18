@@ -1,0 +1,22 @@
+{
+  "name": "gulp-starter-blueprint",
+  "description": "Static site builder",
+  "main": "gulpfile.js",
+  "authors": [
+    "Moroshka_team"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "html5shiv": "~3.7.3",
+    "susy": "~2.2.11"
+  }
+}
