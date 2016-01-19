@@ -1,8 +1,8 @@
 # all files in build folder
-build/**/*.*
+build/
 
 #	all files in node-modules folder
-work/node-modules/
+work/node_modules/
 
 #	all files in bower_components folder
 work/bower_components/
@@ -13,4 +13,4 @@ work/bower_components/
 
 .DC_Store
 
-work/npm-dbug.log
+work/npm-debug.log
