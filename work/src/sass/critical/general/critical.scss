@@ -1,6 +1,11 @@
 @import '../../partials/base/_index.scss';
 @import 'partials/_reset.scss';
+@import 'partials/_fonts.scss';
 
 *{
 	box-sizing: border-box;
+}
+html{
+	font-size: 90%;
+	font-family: Raleway;
 }

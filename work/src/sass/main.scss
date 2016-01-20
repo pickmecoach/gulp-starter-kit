@@ -1,6 +1,10 @@
-// Общий CSS-файл
-// Подключаем Susy:
 @import '../../bower_components/susy/sass/_susy.scss';
-
-// Подключаем миксины,предустановки и переменные 
 @import 'partials/base/_index.scss';
+
+.beware{
+	padding: 0;
+}
+.menu__link{
+	text-transform: uppercase;
+	@include span(12);
+}
