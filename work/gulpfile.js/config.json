@@ -24,7 +24,6 @@
 			"src": "src/fonts/**/*.*"
 		},
 		"critical": {
-			"build": "src/sass/critical",
 			"general": {
 				"raw": "src/sass/critical/general/critical.scss",
 				"build": "src/sass/critical/general",
@@ -57,7 +56,6 @@
 	},
 	"prefixer": {
 		"browsers": [
-			"> 1%",
 			"last 20 versions"
 		],
 		"cascade": false

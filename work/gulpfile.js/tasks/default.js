@@ -7,6 +7,7 @@ var gulp	=	require('gulp'),
 
 gulp.task('default', function(){
 	runSequence(
+		'add-html',	//строим структуру
 		'css-dev',	//сначала собираем CSS
 		'js-dev',		//собираем JS
 		'html-dev',	//собираем HTML и подключаем скрипты и стили

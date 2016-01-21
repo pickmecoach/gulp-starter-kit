@@ -1,17 +1,44 @@
-// Таск, запускающий watcher.
-// Следим за обновлениями, применяем, релоадим.
-// Все пути в файле config.json.
+var config =	require('../config.json'),
+gulp =	require('gulp'),
+jeditor = require('gulp-json-editor'),
+fs =	require('fs'),
+watcher =	require('chokidar').watch;
 
-var gulp	=	require('gulp'),
-		config	=	require('../config.json');
+var testWatch = function(){
+	watcher(config.path.html.watch)
+	.on('change', path => {
+		gulp.start('html-dev');
+		console.log(" File was changed: "+"\""+path+"\".");
+	});
 
-var watchTask	=	function(){
-	gulp.watch([config.path.css.watch], ['css-dev']);
-	gulp.watch([config.path.js.watch], ['js-dev']);
-	gulp.watch([config.path.html.watch], ['html-dev']);
-	gulp.watch([config.path.img.src], ['img']);
-	gulp.watch([config.path.fonts.src], ['fonts']);
-}
+	watcher(['src/html','!src/html/partials'], {awaitWriteFinish: true, ignoreInitial: true})
+	.on('add', path => {gulp.start('add-html')})
+	.on('unlink', path => {gulp.start('del-html')});
 
-gulp.task('watch', watchTask);
-module.exports	=	watchTask;
+	watcher(config.path.css.watch)
+	.on('change', path => {
+		gulp.start('css-dev');
+		console.log(" File was changed: "+"\""+path+"\".");
+	});
+
+	watcher(config.path.js.watch, {ignoreInitial: true})
+	.on('change', path =>{
+		gulp.start('js-dev');
+		console.log(" File was changed: "+"\""+path+"\".");
+	});
+
+	watcher(config.path.img.src, {ignoreInitial: true})
+	.on('all', path =>{
+		gulp.start('img');
+		console.log(" File was changed: "+"\""+path+"\".");
+	});
+
+	watcher(config.path.fonts.src, {ignoreInitial: true})
+	.on('all', path =>{
+		gulp.start('fonts');
+		console.log(" File was changed: "+"\""+path+"\".");
+	});
+};
+
+gulp.task('watch', testWatch);
+module.exports =	testWatch;
