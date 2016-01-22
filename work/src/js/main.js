@@ -1,2 +1,2 @@
-@@include('partials/part1.js')
-console.log(a);
+//Подключение файлов через директиву
+// @@include('file.js')

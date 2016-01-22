@@ -1,8 +1,7 @@
 var config =	require('../config.json'),
 gulp 	=require('gulp'),
 fs =	require('fs'),
-jeditor = require('gulp-json-editor'),
-watcher =	require('gulp-watch');
+jeditor = require('gulp-json-editor');
 
 var delFiles =	function(){
 	var existingFolders = [];
