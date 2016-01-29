@@ -1,0 +1,131 @@
+// ****************************
+// API:
+// ****************************
+// 
+// Possible shapes you can pass to mixin:
+// 
+// ===== Circle =====
+// 
+// 			Creates a circle shape with specific width.
+// 			Takes $shape, $width, $color.
+// 			You can pass anything in $height argument.
+// 			USAGE:
+// 
+// 						@include shape(circle, 50px, null, blue);
+// 
+// ===== Triangle =====
+
+// 			Creates a triangle shape with specific width, height and color.
+// 			In addition, you can pass to mixin a direction of triangle as last argument.
+// 			Direction list: up, down, left, right.
+// 			USAGE: 
+// 
+// 						@include shape(triangle, 100px, 50px, #c5c5c5c, right);
+// 
+// ===== Heart =====
+// 
+// 			Creates a heart shape with specific width and color.
+// 			Takes $shape, $width, $color arguments ONLY.
+// 			You can pass anything in $height argument.
+// 			USAGE:
+// 
+// 						@include shape(heart, 10px, null, red);
+
+@mixin shape($shape, $width, $height, $color, $direction: null){
+
+	// Cirlce shape description 
+	@if ($shape == Circle or $shape == circle) {
+		display: block;
+		width: $width;
+		height: $width;
+		background-color: $color;
+		-webkit-border-radius: $width/2;
+		-moz-border-radius: $width/2;
+		border-radius: $width/2;
+	}
+
+	// Triangle shape description
+	@if ($shape == triangle or $shape == Triangle){
+		width: 0;
+		height: 0;
+		display: block;
+		border-style: solid;
+		@if $direction == up{
+			border-color: transparent transparent $color transparent;
+			border-width: 0 $width/2 $height $width/2;
+		}
+		@if $direction == right{
+			border-color: transparent transparent transparent $color;
+			border-width: $height/2 0 $height/2 $width;
+		}
+		@if $direction == down{
+			border-color: $color transparent transparent transparent;
+			border-width: $height $width/2 0 $width/2;
+		}
+		@if $direction == left{
+			border-color: transparent $color transparent transparent;
+			border-width: $height/2 $width $height/2 0;
+		}
+		@if $direction == top-left{
+			border-color: $color transparent transparent transparent;
+			border-width: $height $width/2 0 0;
+		}
+		@if $direction == top-right{
+			border-color: $color transparent transparent transparent;
+			border-width: $height 0 0 $width/2;
+		}
+		@if $direction == bottom-right{
+			border-color: transparent transparent $color transparent;
+			border-width: 0 0 $height $width/2;
+		}
+		@if $direction == bottom-left{
+			border-color: transparent  transparent $color transparent;
+			border-width: 0 $width/2 $height 0;
+		}
+	}
+	
+	// Heart shape description
+	@if ($shape == heart or $shape == Heart){
+		position: relative;
+		width: $width;
+		height: $width;
+		display: block;
+		&:before,
+		&:after {
+			position: absolute;
+			content: "";
+			left: 50%;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			width: $width/2;
+			height: $width -(($width/100)*20);
+			background: $color;
+			-moz-border-radius: 50px 50px 0 0;
+			border-radius: 50px 50px 0 0;
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
+			-ms-transform-origin: 0 100%;
+			-o-transform-origin: 0 100%;
+			transform-origin: 0 100%;
+		}
+		&:after {
+			left: 0;
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			transform: rotate(45deg);
+			-webkit-transform-origin: 100% 100%;
+			-moz-transform-origin: 100% 100%;
+			-ms-transform-origin: 100% 100%;
+			-o-transform-origin: 100% 100%;
+			transform-origin :100% 100%;
+		}
+	}
+}
